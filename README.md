@@ -1,21 +1,16 @@
-cat > README.md <<'EOF'
 # Customer Churn Prediction
 
-A Python machine learning project demonstrating a reproducible
-training workflow using scikit-learn.
+A reproducible machine learning project built with Python, scikit-learn, and `uv`.
 
-> Current status: The initial pipeline uses scikit-learn's built-in
-> breast cancer dataset to validate model training and testing.
-> Customer churn data and churn-specific evaluation have not yet
-> been implemented.
+> **Current status:** The initial training pipeline uses scikit-learn's built-in breast cancer dataset to validate the model training and testing workflow. Customer churn data and churn-specific evaluation are future improvements.
 
 ## Features
 
-- Python project managed with uv
-- Reproducible dependency resolution with uv.lock
+- Reproducible Python environment using `uv`
+- Dependency locking with `uv.lock`
 - Scikit-learn preprocessing and classification pipeline
-- Train/test split with stratification
-- Model evaluation using accuracy and a classification report
+- Stratified train/test split
+- Model evaluation with accuracy and classification metrics
 - Model serialization with joblib
 - Automated tests with pytest
 - Code quality checks with Ruff
@@ -23,62 +18,62 @@ training workflow using scikit-learn.
 ## Requirements
 
 - Python 3.13 or a compatible version
-- uv
+- [uv](https://docs.astral.sh/uv/)
 
-## Setup
+## Getting Started
 
 Clone the repository:
 
-    git clone <YOUR_REPOSITORY_URL>
-    cd customer-churn-prediction
+```bash
+git clone https://github.com/ayusssh11/customer-churn-prediction.git
+cd customer-churn-prediction
+```
 
 Install dependencies:
 
-    uv sync
+```bash
+uv sync
+```
 
-## Train the model
+## Train the Model
 
-    uv run python -m churn.train
+```bash
+uv run python -m churn.train
+```
 
-The script trains a logistic regression pipeline and saves the
-model artifact under models/.
+The training script evaluates the model and saves the trained artifact under `models/`.
 
-## Run tests
+## Run Tests
 
-    uv run pytest -v
+```bash
+uv run pytest -v
+```
 
-## Code quality
+## Check Code Quality
 
-Check code:
+```bash
+uv run ruff check .
+uv run ruff format --check .
+```
 
-    uv run ruff check .
+## Project Structure
 
-Format code:
-
-    uv run ruff format .
-
-## Project structure
-
-    src/churn/     Reusable ML code
-    tests/         Automated tests
-    notebooks/     Experiments and exploration
-    data/          Local datasets
-    models/        Generated model artifacts
+```text
+src/churn/   Reusable ML code
+tests/       Automated tests
+notebooks/   Experiments and analysis
+data/        Local datasets
+models/      Generated model artifacts
+```
 
 ## Reproducibility
 
-The project uses a fixed random seed for the train/test split.
-Dependencies are recorded in pyproject.toml and uv.lock.
+Dependencies are declared in `pyproject.toml` and resolved versions are recorded in `uv.lock`. The training workflow uses a fixed random seed for its train/test split.
 
 ## Limitations
 
-This is an educational ML pipeline, not a production deployment.
-The current example uses a breast cancer classification dataset,
-not customer churn data. Reported metrics should not be interpreted
-as business churn performance.
+This is an educational project, not a production deployment or medical diagnostic tool. The current dataset is for breast cancer classification and does not represent customer churn. Churn-specific data, metrics, and validation remain to be implemented.
 
 ## License
 
-No license has been selected yet. All rights reserved unless a
-license is added to this repository.
-EOF
+No open-source license has been selected yet. All rights reserved unless a license is added.
